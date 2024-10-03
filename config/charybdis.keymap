@@ -1,7 +1,6 @@
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/mouse.h>
 #include <dt-bindings/zmk/outputs.h>
 
@@ -19,7 +18,7 @@
     };
 
     trackball_snipe_listener {
-        compatible = "zmk,input-behavior-listener";   
+        compatible = "zmk,input-behavior-listener";
         device = <&vtrackball>;
         layers = <>;
         evt-type = <INPUT_EV_REL>;
@@ -33,7 +32,7 @@
         compatible = "zmk,input-behavior-listener";
         device = <&vtrackball>;
         layers = <1>;
-        evt-type = <INPUT_EV_REL>;            
+        evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_MISC>;
         y-input-code = <INPUT_REL_WHEEL>;
         y-invert;
@@ -60,9 +59,26 @@
             flavor = "balanced";
             tapping-term-ms = <240>;
             quick-tap-ms = <150>;
-            bindings = 
-                <&mo>,
-                <&kp>;
+            bindings = <&mo>, <&kp>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        escape {
+            bindings = <&kp ESCAPE>;
+            key-positions = <8 9>;
+        };
+
+        tab {
+            bindings = <&kp TAB>;
+            key-positions = <0 1>;
+        };
+
+        delete {
+            bindings = <&kp DELETE>;
+            key-positions = <29 28>;
         };
     };
 
@@ -72,59 +88,59 @@
         Base {
             label = "Base";
             bindings = <
-  &kp Q  &kp W      &kp E      &kp R  &kp T    &kp Y    &kp U      &kp I    &kp O     &kp P  
-  &kp A  &kp S      &kp D      &kp F  &kp G    &kp H    &kp J      &kp K    &kp L  &kp SEMI  
-  &kp Z  &kp X      &kp C      &kp V  &kp B    &kp N    &kp M  &kp COMMA  &kp DOT  &kp FSLH  
-                         &kp LCTRL  &kp SPACE  &mo 1    &mo 2  &kp RET
+  &kp Q  &kp W  &kp E      &kp R      &kp T    &kp Y  &kp U    &kp I      &kp O    &kp P
+  &kp A  &kp S  &kp D      &kp F      &kp G    &kp H  &kp J    &kp K      &kp L    &kp SLASH
+  &kp Z  &kp X  &kp C      &kp V      &kp B    &kp N  &kp M    &kp COMMA  &kp DOT  &kp BACKSPACE
+                &kp LCTRL  &kp SPACE  &mo 1    &mo 2  &kp RET
             >;
         };
 
         Lower {
             label = "Lower";
             bindings = <
-    &trans    &kp UP     &trans     &trans    &trans       &kp N7   &kp N8  &kp N9   &kp N0  &kp HOME  
-  &kp LEFT  &kp DOWN  &kp RIGHT     &trans    &trans       &kp N4   &kp N5  &kp N6    &none    &trans  
-    &trans    &trans     &trans  &kp MINUS  &kp PLUS       &kp N1   &kp N2  &kp N3  &kp DOT    &trans  
-                                   &kp LGUI  &kp SPACE    &trans    &kp RCTRL  &kp RET
+  &trans    &kp UP    &trans     &trans     &trans      &kp N7     &kp N8   &kp N9  &kp N0   &kp HOME
+  &kp LEFT  &kp DOWN  &kp RIGHT  &trans     &trans      &kp N4     &kp N5   &kp N6  &none    &trans
+  &trans    &trans    &trans     &kp MINUS  &kp PLUS    &kp N1     &kp N2   &kp N3  &kp DOT  &trans
+                      &kp LGUI   &kp SPACE  &trans      &kp RCTRL  &kp RET
             >;
         };
 
         Raise {
             label = "Raise";
             bindings = <
-      &kp EXCL       &kp AT    &kp HASH   &kp DLLR     &kp PRCNT    &kp CARET   &kp AMPS  &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  
-    &bt BT_CLR   &bt BT_PRV  &bt BT_NXT     &trans         &to 3    &kp UNDER  &kp EQUAL         &kp LBKT  &kp RBKT  &kp BSLH  
-  &out OUT_TOG  &bootloader      &trans     &trans        &trans    &kp MINUS   &kp PLUS         &kp LBRC  &kp RBRC  &kp PIPE  
-                                     &kp LGUI  &kp SPACE  &kp LEFT_ALT       &trans    &bootloader
+  &kp EXCL      &kp AT       &kp HASH    &kp DLLR   &kp PRCNT       &kp CARET  &kp AMPS     &kp KP_MULTIPLY  &kp LPAR  &kp RPAR
+  &bt BT_CLR    &bt BT_PRV   &bt BT_NXT  &trans     &to 3           &kp UNDER  &kp EQUAL    &kp LBKT         &kp RBKT  &kp BSLH
+  &out OUT_TOG  &bootloader  &trans      &trans     &trans          &kp MINUS  &kp PLUS     &kp LBRC         &kp RBRC  &kp PIPE
+                             &kp LGUI    &kp SPACE  &kp LEFT_ALT    &trans     &bootloader
             >;
         };
 
         Game {
             label = "Game";
             bindings = <
-  &trans  &trans  &trans  &trans        &trans      &trans  &trans  &trans  &trans  &trans 
-  &trans  &trans  &trans  &trans         &sl 4      &trans  &trans  &trans  &trans  &trans 
-  &trans  &trans  &trans  &trans        &trans      &trans  &trans  &trans  &trans  &trans 
-                        &trans  &trans  &kp LEFT_ALT    &kp RGUI  &trans
+  &trans  &trans  &trans  &trans  &trans          &trans    &trans  &trans  &trans  &trans
+  &trans  &trans  &trans  &trans  &sl 4           &trans    &trans  &trans  &trans  &trans
+  &trans  &trans  &trans  &trans  &trans          &trans    &trans  &trans  &trans  &trans
+                  &trans  &trans  &kp LEFT_ALT    &kp RGUI  &trans
             >;
         };
 
         Game_++ {
             label = "Game ++";
             bindings = <
-  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &kp LC(RA(Y))  &kp LC(RA(U))  &kp LC(RA(I))  &kp LC(RA(H))  &kp LC(RA(J))  
-        &kp L         &kp O         &kp Y         &kp K         &kp G           &trans         &trans         &trans         &trans         &trans  
-        &none         &to 0         &none  &kp NUMBER_6  &kp NUMBER_7           &trans         &trans         &trans         &trans         &trans  
-                                            &kp J         &kp I         &kp M           &trans         &trans
+  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &kp LC(RA(Y))  &kp LC(RA(U))  &kp LC(RA(I))  &kp LC(RA(H))  &kp LC(RA(J))
+  &kp L         &kp O         &kp Y         &kp K         &kp G           &trans         &trans         &trans         &trans         &trans
+  &none         &to 0         &none         &kp NUMBER_6  &kp NUMBER_7    &trans         &trans         &trans         &trans         &trans
+                              &kp J         &kp I         &kp M           &trans         &trans
             >;
         };
 
         Mouse {
             bindings = <
- &trans  &trans     &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans     
- &trans  &trans     &trans  &trans     &trans    &trans  &trans  &trans  &trans  &trans     
- &mkp MCLK   &trans     &trans  &trans     &trans    &trans  &trans  &trans  &trans  &mkp LCLK 
-                           &mkp LCLK  &trans  &mkp RCLK    &trans  &trans
+  &trans     &trans  &trans     &trans  &trans       &trans  &trans  &trans  &trans  &trans
+  &trans     &trans  &trans     &trans  &trans       &trans  &trans  &trans  &trans  &trans
+  &mkp MCLK  &trans  &trans     &trans  &trans       &trans  &trans  &trans  &trans  &mkp LCLK
+                     &mkp LCLK  &trans  &mkp RCLK    &trans  &trans
             >;
         };
     };
