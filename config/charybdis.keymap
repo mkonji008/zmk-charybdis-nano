@@ -24,6 +24,16 @@
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
         };
+        
+        td_selall-z: tap_dance_my {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_MY;
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings =
+            <&kp Z>,
+            <&mo LCTRL Z>;
+        };
     };
 
     combos {
