@@ -44,9 +44,14 @@
             key-positions = <29 28>;
         };
 
-        bt+boot {
+        bt+boot_right {
             bindings = <&mo 4>;
             key-positions = <5 6 7 8>;
+        };
+
+        bt+boot_left {
+            bindings = <&mo 4>;
+            key-positions = <1 2 3 4>;
         };
     };
 
@@ -66,40 +71,40 @@
         Lower {
             label = "Lower";
             bindings = <
-  &kp F1  &kp F2   &kp F3   &kp F4   &trans    &kp N7  &kp N8  &kp N9  &kp N0  &trans
-  &kp F5  &kp F6   &kp F7   &kp F8   &trans    &kp N4  &kp N5  &kp N6  &none   &trans
-  &kp F9  &kp F10  &kp F11  &kp F12  &trans    &kp N1  &kp N2  &kp N3  &trans  &trans
-                   &trans   &trans   &trans    &trans  &trans
+  &kp F1  &kp F2   &kp F3   &kp F4   &none     &kp N7   &kp N8  &kp N9  &kp N0  &none
+  &kp F5  &kp F6   &kp F7   &kp F8   &none     &kp N4   &kp N5  &kp N6  &none   &none
+  &kp F9  &kp F10  &kp F11  &kp F12  &none     &kp N1   &kp N2  &kp N3  &none   &none
+                   &trans   &trans   &trans    &kp DEL  &trans
             >;
         };
 
         Raise {
             label = "Raise";
             bindings = <
-  &kp DOLLAR  &kp PERCENT    &kp CARET         &kp LBRC  &kp RBRC    &kp EQUAL  &kp PLUS      &kp GRAVE  &kp SINGLE_QUOTE   &kp SEMICOLON
-  &kp AMPS    &kp EXCL       &kp QMARK         &kp LBKT  &kp RBKT    &kp UNDER  &kp MINUS     &trans     &kp DOUBLE_QUOTES  &kp COLON
-  &kp AT      &kp LESS_THAN  &kp GREATER_THAN  &kp LPAR  &kp RPAR    &kp HASH   &kp ASTERISK  &kp TILDE  &kp PIPE           &kp BACKSLASH
-                             &trans            &trans    &trans      &trans     &trans
+  &kp DOLLAR  &kp PERCENT    &kp CARET         &kp LBRC  &kp RBRC     &kp EQUAL  &kp PLUS      &kp GRAVE  &kp SINGLE_QUOTE   &kp SEMICOLON
+  &kp AMPS    &kp EXCL       &kp QMARK         &kp LBKT  &kp RBKT     &kp UNDER  &kp MINUS     &trans     &kp DOUBLE_QUOTES  &kp COLON
+  &kp AT      &kp LESS_THAN  &kp GREATER_THAN  &kp LPAR  &kp RPAR     &kp HASH   &kp ASTERISK  &kp TILDE  &kp PIPE           &kp BACKSLASH
+                             &trans            &trans    &kp SPACE    &trans     &trans
             >;
         };
 
         nav-and-fn {
             label = "nav-and-fn";
             bindings = <
-  &kp LS(TAB)  &kp TAB  &kp INSERT  &kp HOME  &kp PAGE_UP      &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR
-  &trans       &trans   &trans      &kp END   &kp PAGE_DOWN    &kp UNDER  &kp EQUAL  &kp LBKT         &kp RBKT  &kp BSLH
-  &trans       &trans   &trans      &trans    &trans           &kp MINUS  &kp PLUS   &kp LBRC         &kp RBRC  &kp PIPE
-                        &trans      &trans    &kp SPACE        &trans     &trans
+  &kp LS(TAB)  &kp TAB  &kp INSERT  &kp HOME  &kp PAGE_UP        &none   &kp LA(LEFT)  &kp LA(DOWN)  &kp LA(UP)  &kp LA(RIGHT)
+  &none        &none    &none       &kp END   &kp PAGE_DOWN      &none   &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT
+  &to 8        &none    &none       &none     &kp PRINTSCREEN    &none   &kp LC(LEFT)  &kp LC(DOWN)  &kp LC(UP)  &kp RIGHT
+                        &trans      &trans    &kp SPACE          &trans  &trans
             >;
         };
 
         bt+boot {
             label = "bt+boot";
             bindings = <
-  &bt BT_NXT    &bt BT_PRV  &none   &none   &bootloader    &bootloader  &none   &none  &none  &none
-  &bt BT_CLR    &none       &none   &none   &none          &none        &none   &none  &none  &none
-  &out OUT_TOG  &none       &none   &none   &none          &none        &none   &none  &none  &none
-                            &trans  &trans  &trans         &trans       &trans
+  &bt BT_NXT    &bt BT_PRV  &none  &none  &none          &none        &none  &none  &none  &none
+  &bt BT_CLR    &none       &none  &none  &none          &none        &none  &none  &none  &none
+  &out OUT_TOG  &none       &none  &none  &bootloader    &bootloader  &none  &none  &none  &none
+                            &none  &none  &none          &none        &none
             >;
         };
 
@@ -132,19 +137,28 @@
 
         game {
             bindings = <
-  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-                  &trans  &trans  &trans    &trans  &trans
+  &kp TAB     &kp Q  &kp W   &kp E  &kp R        &kp F1     &kp F2            &kp F3     &kp F4  &kp F5
+  &kp LCTRL   &kp A  &kp S   &kp D  &kp F        &kp COMMA  &kp PERIOD        &none      &none   &none
+  &kp LSHIFT  &kp Z  &kp X   &kp C  &kp V        &mkp LCLK  &mkp MCLK         &mkp RCLK  &none   &to 0
+                     &mo 10  &mo 9  &kp SPACE    &mo 2      &kp LEFT_CONTROL
             >;
         };
 
         game+ {
             bindings = <
-  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-                  &trans  &trans  &trans    &trans  &trans
+  &kp T  &kp Y  &kp U   &kp I   &kp O        &trans  &trans            &trans  &trans  &trans
+  &kp G  &kp H  &kp J   &kp K   &kp L        &trans  &trans            &trans  &trans  &trans
+  &kp B  &kp N  &kp M   &kp P   &kp TILDE    &trans  &trans            &trans  &trans  &trans
+                &trans  &trans  &kp SPACE    &mo 2   &kp LEFT_CONTROL
+            >;
+        };
+
+        game++ {
+            bindings = <
+  &kp ESC  &kp HOME  &kp UP    &kp END    &kp PAGE_UP      &trans  &trans            &trans  &trans  &trans
+  &kp DEL  &kp LEFT  &kp DOWN  &kp RIGHT  &kp PAGE_DOWN    &trans  &trans            &trans  &trans  &trans
+  &kp N1   &kp N2    &kp N3    &kp N4     &kp N5           &trans  &trans            &trans  &trans  &trans
+                     &trans    &trans     &kp SPACE        &mo 2   &kp LEFT_CONTROL
             >;
         };
     };
