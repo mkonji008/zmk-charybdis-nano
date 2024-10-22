@@ -5,7 +5,7 @@
         zmk,kscan = &mock_kscan;
     };
 
-    mock_kscan: kscan_1 {
+    mock_kscan: kscan0 {
         compatible = "zmk,kscan-mock";
         columns = <0>;
         rows = <0>;
@@ -14,13 +14,8 @@
 };
 
 / {
-	vtrackball: virtual_input_trackball {
-		compatible = "zmk,virtual-input";
-	};
-
-	input_relay_config_trackball {
-		compatible = "zmk,split-peripheral-input-relay";
-		device = <&vtrackball>;
-		relay-channel = <102>;
-	};
+    trackball_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball>;
+    };
 };
