@@ -59,7 +59,6 @@
             timeout-ms = <COMBO_TERM_SLOW>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
             key-positions = <13 16>;
-            layers = <Base>;
         };
 
         bt+boot_right {
