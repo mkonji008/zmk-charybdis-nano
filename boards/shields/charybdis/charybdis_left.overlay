@@ -11,9 +11,3 @@
         , <&pro_micro 8 (GPIO_ACTIVE_HIGH)> // COL5
     ;
 };
-
-/ {
-	vtrackball: virtual_input_trackball {
-		compatible = "zmk,virtual-input";
-	};
-};
