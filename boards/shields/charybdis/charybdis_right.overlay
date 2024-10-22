@@ -1,7 +1,11 @@
 #include "charybdis.dtsi"
 #include "charybdis_3610.dtsi"
 
-&charybdis_nano {
+&default_transform {
+	col-offset = <6>;
+};
+
+&five_column_transform {
 	col-offset = <5>;
 };
 
